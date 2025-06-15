@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akash Aveesha - Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;400&display=swap');
+    :root {
+      --color-bg: #edecf1;
+      --color-text-primary: #111827;
+      --color-text-secondary: #020e27;
+      --color-accent: #000000;
+      --color-accent-hover: #2e40dd;
+      --border-radius: 0.75rem;
+      --shadow-light: rgba(8, 10, 100, 0.05);
+      --shadow-hover: rgba(248, 244, 244, 0.1);
+      --max-width: 1200px;
+      --spacing-section-vertical: 4rem;
+      --spacing-section-padding: 2.5rem;
+      --button-bg: var(--color-accent);
+      --button-hover-bg: var(--color-accent-hover);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      font-size: 18px;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: var(--color-accent-hover);
+      outline: none;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--color-bg);
+      box-shadow: 0 2px 8px var(--shadow-light);
+      z-index: 1000;
+    }
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      padding-bottom: 0.1rem;
+      transition: background-color 0.3s ease;
+    }
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--spacing-section-vertical) 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-section-vertical);
+    }
+    section {
+      scroll-margin-top: 80px;
+      border-radius: var(--border-radius);
+      padding: var(--spacing-section-padding);
+      box-shadow: 0 8px 16px var(--shadow-light);
+    }
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
+      background: linear-gradient(135deg, #f6faf9, #685fdd);
+      color: rgb(7, 7, 7);
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin: 0;
+    }
+    .hero p {
+      font-weight: 400;
+      font-size: 1.3rem;
+      max-width: 620px;
+    }
+    .btn-primary {
+      font-weight: 700;
+      font-size: 1.25rem;
+      background-color: var(--button-bg);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.85rem 2.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 6px 12px rgba(9, 1, 43, 0.12);
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: var(--button-hover-bg);
+      outline: none;
+    }
+    .photo-card {
+      border-radius: var(--border-radius);
+      box-shadow: 0 16px 32px var(--shadow-light);
+      overflow: hidden;
+      max-width: 320px;
+      width: 100%;
+    }
+    img.profile-photo {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+    }
+    /* About Section */
+    .about-section {
+     background: linear-gradient(135deg, #f6faf9, #685fdd);
+    }
+    .about-section h2 {
+      font-weight: 700;
+      font-size: 2.75rem;
+      color: var(--color-accent);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .about-section p {
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #f6faf9, #685fdd);
+    }
+    .contact-section h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    /* Inline SVG icon styling */
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      stroke: var(--color-accent);
+      stroke-width: 2;
+      fill: none;
+      vertical-align: middle;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-form label {
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      margin-bottom: 0.3rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.85rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 6px var(--color-accent);
+    }
+    .contact-form button {
+      background-color: var(--color-accent);
+      color: white;
+      font-weight: 700;
+      font-size: 1.125rem;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: center;
+      width: 150px;
+    }
+    .contact-form button:hover,
+    .contact-form button:focus {
+      background-color: var(--button-hover-bg);
+      outline: none;
+    }
+    /* Responsive */
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        text-align: left;
+        gap: 3rem;
+        align-items: center;
+      }
+      .hero-text {
+        max-width: 480px;
+      }
+    }
+  </style>
+</head>
+
+
+
+
+<body>
+    
+  <header>
+    <nav aria-label="Primary navigation">
+      <div class="logo" tabindex="0">Akash Aveesha</div>
+      <div class="nav-links">
+        <a href="#home" tabindex="0">Home</a>
+        <a href="#about" tabindex="0">About</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="hero" tabindex="-1" aria-label="Home section">
+      <div class="hero-text">
+        <h1>Akash Aveesha</h1>
+        <p>Welcome to my personal website. I am passionate about creating meaningful web experiences and sharing my journey.</p>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });" aria-label="Contact me">Contact Me</button>
+      </div>
+      <div class="photo-card" role="img" aria-label="Photo of Akash Aveesha">
+        <img src="ima.jpg" alt="Akash Aveesha" class="profile-photo" />
+      </div>
+    </section>
+    <section id="about" class="about-section" tabindex="-1" aria-label="About section">
+      <h2>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" stroke-linejoin="round"/>
+          <path d="M6 20v-2c0-2.21 3.58-4 6-4s6 1.79 6 4v2" stroke-linejoin="round"/>
+        </svg>
+        About Me
+      </h2>
+      <p>
+        Hello! I’m Imasha Arunodi, a dedicated web enthusiast who loves building modern, accessible, and beautiful websites. With a keen eye for design and a passion for clean code, I strive to create experiences that are intuitive and delightful.<br /><br />
+        I enjoy learning new technologies and pushing the boundaries of web design to craft elegant digital solutions suited for today’s world.<br /><br />
+        Outside of code, I am an avid reader and nature lover, constantly inspired by the creativity around me and eager to bring innovative ideas to life.
+      </p>
+    </section>
+    <section id="contact" class="contact-section" tabindex="-1" aria-label="Contact section">
+      <h2>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8" />
+          <rect x="3" y="6" width="18" height="12" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg>
+        Contact Me
+      </h2>
+      <form class="contact-form" name="contact" method="POST" action="#" onsubmit="handleSubmit(event)" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required aria-required="true" autocomplete="name" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required aria-required="true" spellcheck="true"></textarea>
+        <button type="submit" aria-label="Send message">Send</button>
+      </form>
+    </section>
+  </main>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      if (form.checkValidity()) {
+        alert('Thank you for reaching out, we will get back to you soon!');
+        form.reset();
+      } else {
+        form.reportValidity();
+      }
+    }
+  </script>
+  
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather Data</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #011030;
+    color: #01082c5b;
+  }
+  h2 {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(48, 3, 131, 0.1);
+    background-color: #0a0157;
+  }
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  td:first-child {
+    font-weight: bold;
+    color: #555;
+  }
+</style>
+</head>
+<body>
